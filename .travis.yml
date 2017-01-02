@@ -31,3 +31,4 @@ deploy:
   file: $DEPLOY_FILE
   on:
     repo: Touched/armips-binaries
+    tags: true
