@@ -4,5 +4,5 @@ platform:
 configuration:
   - Debug
   - Release
-before_build:
-  - ps: cd armips
+build:
+  project: armips/armips.asln
