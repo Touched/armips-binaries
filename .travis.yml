@@ -13,6 +13,13 @@ matrix:
   exclude:
     - os: osx
       env: BUILD_ARCH=x86
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+      - g++-multilib
 before_deploy:
   - export DEPLOY_FILE=armips-${TRAVIS_OS_NAME}-${BUILD_ARCH}-${TRAVIS_TAG}.tar.gz
   - tar -czvf $DEPLOY_FILE armips
