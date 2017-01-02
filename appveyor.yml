@@ -7,9 +7,12 @@ install:
   - git submodule update --init --recursive
 build:
   project: armips\armips.sln
+environment:
+  binary: armips.exe
 after_build:
-  - copy /B armips\_Output\armips.exe armips.exe
-  - 7z a armips-%CONFIGURATION%-%PLATFORM%.zip armips.exe
+  - IF NOT "%CONFIGURATION%"=="Win32" set binary=armips64.exe
+  - copy /B armips\_Output\%BINARY% %BINARY%
+  - 7z a armips-%CONFIGURATION%-%PLATFORM%.zip %BINARY%
 artifacts:
   path: armips-%CONFIGURATION%-%PLATFORM%.zip
   name: Armips
