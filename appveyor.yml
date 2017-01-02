@@ -6,7 +6,7 @@ configuration:
 install:
   - git submodule update --init --recursive
 build:
-  project: armips\armips.sl
+  project: armips\armips.sln
 after_build:
   - 7z a armips-%CONFIGURATION%-%PLATFORM%.zip armips\_Output\armips.exe
 artifacts:
