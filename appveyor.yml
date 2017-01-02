@@ -8,8 +8,8 @@ install:
 build:
   project: armips\armips.sln
 after_build:
-  - set binary=armips.exe
-  - IF "%CONFIGURATION%"=="x64" set binary=armips64.exe
+  - ps: $env:BINARY = If (%env:CONFIGURATION=="x64") {"armips64.exe"} Else {"armips.exe"}
+  - echo %BINARY%
   - copy /B armips\_Output\%BINARY% %BINARY%
   - 7z a armips-%CONFIGURATION%-%PLATFORM%.zip %BINARY%
 artifacts:
