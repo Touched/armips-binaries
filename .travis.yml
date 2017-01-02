@@ -2,7 +2,7 @@ language: cpp
 sudo: required
 dist: trusty
 compiler: gcc
-script: cd armips && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE . && make && ./armipstests
+script: cd armips && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE . && make
 env:
   - BUILD_TYPE=Debug
   - BUILD_TYPE=Release
