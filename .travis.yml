@@ -3,9 +3,9 @@ sudo: required
 dist: trusty
 compiler: gcc
 script: cd armips && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE . && make
-matrix:
-- env: BUILD_TYPE=Debug
-- env: BUILD_TYPE=Release
+env:
+  - BUILD_TYPE=Debug
+  - BUILD_TYPE=Release
 deploy:
   provider: releases
   skip_cleanup: true
