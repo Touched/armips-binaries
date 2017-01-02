@@ -4,5 +4,7 @@ platform:
 configuration:
   - Debug
   - Release
+before_build:
+  - cmd: dir /s
 build:
   project: armips\armips.sln
