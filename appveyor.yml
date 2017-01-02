@@ -8,7 +8,8 @@ install:
 build:
   project: armips\armips.sln
 after_build:
-  - 7z a armips-%CONFIGURATION%-%PLATFORM%.zip armips\_Output\armips.exe
+  - copy /B armips\_Output\armips.exe armips.exe
+  - 7z a armips-%CONFIGURATION%-%PLATFORM%-%APPVEYOR_REPO_TAG_NAME%.zip armips.exe
 artifacts:
-  path: armips-%CONFIGURATION%-%PLATFORM%.zip
+  path: armips-%CONFIGURATION%-%PLATFORM%-%APPVEYOR_REPO_TAG_NAME%.zip
   name: Armips
