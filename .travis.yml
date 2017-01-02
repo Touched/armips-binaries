@@ -2,12 +2,12 @@ language: cpp
 compiler: gcc
 script: cd armips && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE . && make
 matrix:
-  - env: BUILD_TYPE=Debug
-  - env: BUILD_TYPE=Release
+- env: BUILD_TYPE=Debug
+- env: BUILD_TYPE=Release
 deploy:
   provider: releases
-  api_key: "$GITHUB_OAUTH_TOKEN"
+  api_key:
+    secure: HfmJ4PcdCA9+AlSQ5PZm0XH/+DJLt1+4j2pS8fbNigCi9eVgkxGTUK+kSQWBrHlft45yJZsbNo67M2VjUFr+iAtbhH/6e/FR223ozh53WqhPZA6jLWIAXozP38H0qYScMQCd2tnHQIoOEF8/+x2yVh4iDOpa67k58/RCRfdsrMO6USLm+cc9faBgvMkZEw+1gJsq1XN7xw3DxLFarEzSYDe7rwAkRB2n1k504et8hSwC9xYL+bmH8ZTXIIdkSCPbrymltbQjrJ8FqIHCxFlWr7M6v8sMHIMhLGFQxH07+vRPNq+eO7lnkYKqCdDV/5mGulTv/1lV6U0kSumLzW56Klcj+k1s9taHM7tw0bl3AufheQcSS0zud14KwLhaT23VLVvGP6P39GxK+y4zTQQlK45JLuWn3qYdpxwJl5vbrbDkiTEoIEIB7JJj7lTpXo8JwMKyimWr6CLDFG0yjPw6xihTH8FwLsriiqu0DF5tWHWGcBFwDETiBlQE993i6fv1QoyZls8asXZqJAjFFKdrhtGXIqvPXWnkr3yZfeTqzmFa0rXpMIohYTt9HisLBrxh/Jy7zkI217xqHMyMbjaTWH3yHaUqg0b+YcJeYxi+8Vg4lyxsXAE8IaQMKt++w3X1c2rGqKUApxgegmfZtaOjpiSZs9Aik1zsThrY/0Oux+Y=
   file: armips/armips
-  skip_cleanup: true
   on:
-    tags: true
+    repo: Touched/armips-binaries
