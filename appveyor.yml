@@ -4,4 +4,5 @@ platform:
 configuration:
   - Debug
   - Release
-before_build: cd armips
+before_build:
+  - ps: cd armips
