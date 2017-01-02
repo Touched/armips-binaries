@@ -1,4 +1,6 @@
 language: cpp
+sudo: required
+dist: trusty
 compiler: gcc
 script: cd armips && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE . && make
 matrix:
