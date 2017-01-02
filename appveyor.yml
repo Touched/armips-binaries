@@ -5,4 +5,4 @@ configuration:
   - Debug
   - Release
 build:
-  project: armips/armips.asln
+  project: armips\armips.sln
