@@ -4,7 +4,7 @@ platform:
 configuration:
   - Debug
   - Release
-before_build:
-  - cmd: dir /s
+install:
+  - git submodule update --init --recursive
 build:
   project: armips\armips.sln
