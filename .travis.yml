@@ -1,0 +1,13 @@
+language: cpp
+compiler: gcc
+script: cd armips && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE . && make
+matrix:
+  - env: BUILD_TYPE=Debug
+  - env: BUILD_TYPE=Release
+deploy:
+  provider: releases
+  api_key: "$GITHUB_OAUTH_TOKEN"
+  file: armips/armips
+  skip_cleanup: true
+  on:
+    tags: true
