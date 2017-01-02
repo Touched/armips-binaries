@@ -22,7 +22,7 @@ addons:
       - g++-multilib
 before_deploy:
   - export DEPLOY_FILE=armips-${TRAVIS_OS_NAME}-${BUILD_ARCH}-${TRAVIS_TAG}.tar.gz
-  - tar -czvf $DEPLOY_FILE armips
+  - tar -czvf $DEPLOY_FILE armips LICENSE.txt Readme.txt
 deploy:
   provider: releases
   skip_cleanup: true
