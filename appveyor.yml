@@ -11,7 +11,19 @@ after_build:
   - copy /B armips\_Output\armips*.exe armips.exe
   - copy /B armips\Readme.txt Readme.txt
   - copy /B armips\LICENSE.txt LICENSE.txt
-  - 7z a armips-%CONFIGURATION%-%PLATFORM%.zip armips.exe LICENSE.txt Readme.txt
+  - 7z a armips-%PLATFORM%.zip armips.exe LICENSE.txt Readme.txt
 artifacts:
-  path: armips-%CONFIGURATION%-%PLATFORM%.zip
+  path: armips-%PLATFORM%.zip
   name: Armips
+deploy:
+  - provider: BinTray
+    username: touched
+    api_key:
+      secure: 0xW6/yHvT4GF0Iy2AEXWBTlFa3FJ7CzMgXJ6xy2HJQnZog3bHkNudKTiLqJZadvX
+    subject: touched
+    repo: armips-binaries
+    package: armips
+    version: v0.8
+    publish: true
+    override: true
+    artifact: armips-%PLATFORM%.zip
